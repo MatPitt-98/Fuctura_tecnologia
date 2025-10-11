@@ -1,0 +1,21 @@
+* {
+    margin: 0px;
+    padding: 10px;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+    color: rgb(164, 226, 255);
+}
+
+header{
+    text-align: center;
+}
+
+body{
+    background-color: rgb(0, 0, 66);
+    text-align: center;
+}
+
+.foto1, .foto2, .foto3{
+    width: 1366px;
+    height: 768px;
+}
