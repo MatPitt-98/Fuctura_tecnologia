@@ -2,7 +2,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif; /* Fonte padrão */
-    background-color: #f4f4f4; /* Cor de fundo da página */
+    background-color:rgb(164, 255, 247);  /* Cor de fundo da página */
+    color: blue;
 }
 
 /* Estilizando o título */
@@ -26,7 +27,7 @@ table {
 
 /* Estilizando as células da tabela */
 th, td {
-    border: 1px solid #ddd; /* Borda das células */
+    border: 1px solid blue; /* Borda das células */
     padding: 12px; /* Espaçamento interno das células */
     text-align: left; /* Alinha o texto à esquerda */
 }
