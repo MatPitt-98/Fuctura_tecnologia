@@ -1,18 +1,28 @@
-body {
-    background-color: #5e5be9; /* Cor de fundo roxa */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.login-wrapper {
+    background-image: url('../imagens/plano_de_fundo_da_tela_de_login.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
 }
 
 .container {
-    background-color: white; /* Fundo da caixa de login */
-    padding: 40px 60px 40px 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    background-color: rgba(255, 189, 91, 0.856); /* Fundo da caixa de login */
+    padding: 40px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 320px;
+    text-align: center;
 }
 
 h1 {
@@ -20,10 +30,21 @@ h1 {
     margin-bottom: 10px;
 }
 
+h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
 p {
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 20px;
+}
+
+.usuario, .senha{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
 }
 
 label {
@@ -33,11 +54,11 @@ label {
 }
 
 input {
-    width: 100%;
+    width: 93%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 50px;
 }
 
 .forgot-password {
@@ -51,7 +72,7 @@ input {
 .btn {
     width: 100%;
     padding: 10px;
-    background-color: #28a745; /* Cor do botão */
+    background-color: #000000; /* Cor do botão */
     color: white;
     border: none;
     border-radius: 4px;
@@ -60,5 +81,5 @@ input {
 }
 
 .btn:hover {
-    background-color: #218838; /* Efeito hover */
+    background-color: #777777; /* Efeito hover */
 }

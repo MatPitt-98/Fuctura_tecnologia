@@ -1,23 +1,25 @@
 {% extends 'pdv/base.html' %}
 
 {% load static %}
+
 {% block extra_styles %}
 <link rel="stylesheet" type="text/css" href="{% static 'login/login.css' %}">
+
 {% endblock %}
 
 {% block content %}
 
-<div>
+<div class="login-wrapper">
     <div class="container">
-        <h2>login</h2>
+        <h2>Login</h2>
     <p>Digite os seus dados de acesso no campo abaixo.</p>
     <form method="post">
         {% csrf_token %}
-        <div>
-            <label for="username">Usuário:</label>
+        <div class="usuario">
+            <label for="username">Usuário</label>
             <input type="text" id="username" name="username" required class="input-field" placeholder="Digite seu Usuário">
         </div>
-        <div>
+        <div class="senha">
             <label for="password">Senha</label>
             <input type="password" id="password" class="input-field" name="password" placeholder="Digite sua senha" required>
         </div>

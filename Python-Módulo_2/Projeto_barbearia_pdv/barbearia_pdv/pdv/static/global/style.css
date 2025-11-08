@@ -3,12 +3,13 @@
 /* Estilizando o body */
 body {
     margin: 0;
-    font-family: Arial, sans-serif; /* Fonte padrão */
+    font-family: 'Times New Roman', Times, serif; /* Fonte padrão */
+    font-size: large;
 }
 
 /* Estilizando o header */
 header {
-    background-color: #5e5be9; /* Cor de fundo da navbar */
+    background-color: #1a1a1a; /* Cor de fundo da navbar */
     color: white; /* Cor do texto */
     padding: 10px 20px; /* Espaçamento interno */
     position: fixed; /* Fixa a navbar no topo */
@@ -34,7 +35,7 @@ nav a {
 
 /* Efeito ao passar o mouse sobre os links */
 nav a:hover {
-    background-color: #3c39fa; /* Cor de fundo ao passar o mouse */
+    background-color: gray; /* Cor de fundo ao passar o mouse */
 }
 
 /* Estilizando o main */
