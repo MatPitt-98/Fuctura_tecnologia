@@ -2,15 +2,18 @@ from django import forms
 from .models import Quarto, Cliente, Reserva, Despesa, Receita
 from django.contrib.auth.models import User
 
+
 class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = ['nome', 'cpf', 'telefone']
 
+
 class ReservaForm(forms.ModelForm):
     class Meta:
         model = Reserva
-        fields = ['cliente', 'quarto', 'data_de_entrada', 'data_de_saída']
+        fields = ['cliente', 'quarto', 'data_entrada', 'data_saida']
+
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
@@ -27,4 +30,3 @@ class UserRegistrationForm(forms.ModelForm):
 
         if password and password_confirm and password != password_confirm:
             raise forms.ValidationError("As senhas não coincidem.")
-        

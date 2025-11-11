@@ -14,12 +14,12 @@ class Quarto(models.Model):
     ]
 
     numero = models.CharField(max_length=4)
-    tipo = models.CharField(
-        max_length=20, choices=TIPOS_DE_QUARTO, default='basico')
-    preco = models.DecimalField(max_digits=100, decimal_places=2)
+    tipo = models.CharField(max_length=20, choices=TIPOS_DE_QUARTO, default='basico')
+    preco = models.DecimalField(max_digits=8, decimal_places=2)
+    disponivel = models.BooleanField(default=True)
 
     def __str__(self):
-        return f'Quarto: {self.numero}, ({self.get_tipo_display()})'
+        return f'Quarto: {self.numero} - {self.get_tipo_display()}'
 
 
 class Cliente(models.Model):

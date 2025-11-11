@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login as auth_login, authenticate, logout
 from django.contrib.auth.models import User
 from .models import Quarto, Cliente, Reserva, Despesa, Receita
-from .forms import QuartoForm, ClienteForm, ReservaForm, DespesaForm, ReceitaForm
+from .forms import QuartoForm, ClienteForm, ReservaForm, DespesaForm, ReceitaForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 # Create your views here.
 
 def login_view(request):
+    error_message = None
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -14,7 +16,9 @@ def login_view(request):
         if user is not None:
             auth_login(request, user)
             return redirect('dashboard') # Redireciona para o dashboard após login
-    return render(request, 'app_Hotel_Grande_Campo/login.html')
+        else:
+            error_message = "Usuário ou senha inválidos."
+    return render(request, 'app_Hotel_Grande_Campo/login.html', {'error_message': error_message})
 
 def logout_view(request):
     logout(request)
@@ -42,6 +46,7 @@ def criar_cliente(request):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "Cliente criado com sucesso!")
             return redirect('clientes')
     else:
         form = ClienteForm()
@@ -67,3 +72,8 @@ def criar_reserva(request):
 def reservas_view(request):
     reservas = Reserva.objects.all()
     return render(request, 'app_Hotel_Grande_Campo/reservas.html', {'reservas': reservas})
+
+@login_required
+def quartos_disponiveis_view(request):
+    quartos = Quarto.objects.filter(disponivel=True)
+    return render(request, 'app_Hotel_Grande_Campo/quartos.html', {'quartos': quartos})

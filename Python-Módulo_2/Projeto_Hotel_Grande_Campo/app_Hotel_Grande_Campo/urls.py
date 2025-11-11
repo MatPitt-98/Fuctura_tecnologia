@@ -1,11 +1,6 @@
 from django.urls import path
 from django.contrib import admin
-from .views import (
-    login_view, logout_view,
-    register_view, dashboard,
-    criar_cliente, clientes_view,
-    criar_reserva, reservas_view,
-)
+from .views import * 
 
 urlpatterns = [
     path('login/', login_view, name='login'),

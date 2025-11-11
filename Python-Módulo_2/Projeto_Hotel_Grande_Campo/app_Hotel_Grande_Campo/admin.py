@@ -8,3 +8,9 @@ admin.site.register(Cliente)
 admin.site.register(Reserva)
 admin.site.register(Despesa)
 admin.site.register(Receita)
+
+
+@admin.register(Quarto)
+class QuartoAdmin(admin.ModelAdmin):
+    list_display = ('numero', 'tipo', 'preco', 'disponivel')
+    list_filter = ('disponivel', 'tipo')
