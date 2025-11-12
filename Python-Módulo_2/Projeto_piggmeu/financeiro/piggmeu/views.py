@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Transacao
 
-# Create your views here.
-
 def menu(request):
     if request.method == 'POST':
         # Verifica se o usuário quer deletar
@@ -10,7 +8,7 @@ def menu(request):
         if delete_id:
             Transacao.objects.filter(id=delete_id).delete()
             return redirect('/')
-        
+
         # Caso contrário, adiciona nova transação
         descricao = request.POST.get('descricao')
         valor = request.POST.get('valor')
@@ -18,7 +16,7 @@ def menu(request):
         if descricao and valor and tipo:
             Transacao.objects.create(descricao=descricao, valor=valor, tipo=tipo)
         return redirect('/')
-    
+
     # Exibe os dados
     transacoes = Transacao.objects.all()
     total_receitas = sum(t.valor for t in transacoes if t.tipo == 'R')

@@ -1,0 +1,94 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #ffdaa4;
+    background-image: url("plano_de_fundo.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.container {
+    width: 500px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #336b85;
+    box-shadow: 0 0 50px #336b85;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #000000;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #6eab73;
+    border-style: outset; 
+    border-color: #416754;
+    border-width: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #416754;
+    border-style: inset;
+    border-color: #6eab73;
+    border-width: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 2px solid #336b85;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+.resumo {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-delete {
+    background-color: #fc9b40;
+    border-color: #f3863c;
+    border-style: outset;
+    color: rgb(0, 0, 0);
+    border-width: 3px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background-color: #f3863c;
+    border-color: #fc9b40;
+    border-style: inset;
+    border-width: 3px;
+}

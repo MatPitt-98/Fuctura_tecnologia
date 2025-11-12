@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 class Transacao(models.Model):
     TIPO_CHOICES = [
         ('R', 'Receita'),
@@ -14,4 +12,6 @@ class Transacao(models.Model):
 
     def __str__(self):
         return f"{self.descricao} ({self.get_tipo_display()})"
-    
+
+
+
