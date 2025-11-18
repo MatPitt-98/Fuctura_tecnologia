@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Rastreador de Leitura</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Livros Rastreados</h1>
+        <a href="{% url 'adicionar_livro' %}" class = "btn">Adicionar Livro</a>
+
+        {% if livros %}
+            <table>
+                <tr>
+                    <th>Capa</th>
+                    <th>
+                        <a href="?ordering={% if ordering == 'nome' %}-nome{% else %}nome{% endif %}&page={{ page_obj.number }}">
+                            Nome
+                            {% if ordering == "nome" %}▲{% endif %}
+                            {% if ordering == "-nome" %}▼{% endif %}
+                        </a>
+                    </th>
+                    <th>
+                        <a href="?ordering={% if ordering == 'escritor' %}-escritor{% else %}escritor{% endif %}&page={{ page_obj.number }}">
+                            Escritor
+                            {% if ordering == "escritor" %}▲{% endif %}
+                            {% if ordering == "-escritor" %}▼{% endif %}
+                        </a>
+                    </th>
+                    <th>
+                        <a href="?ordering={% if ordering == 'editora' %}-editora{% else %}editora{% endif %}&page={{ page_obj.number }}">
+                            Editora
+                            {% if ordering == "editora" %}▲{% endif %}
+                            {% if ordering == "-editora" %}▼{% endif %}
+                        </a>
+                    </th>
+                    <th>
+                        <a href="?ordering={% if ordering == 'progresso' %}-progresso{% else %}progresso{% endif %}&page={{ page_obj.number }}">
+                            Progresso
+                            {% if ordering == "progresso" %}▲{% endif %}
+                            {% if ordering == "-progresso" %}▼{% endif %}
+                        </a>
+                    </th>
+                    <th>
+                        <a href="?ordering={% if ordering == 'status' %}-status{% else %}status{% endif %}&page={{ page_obj.number }}">
+                            Status
+                            {% if ordering == "status" %}▲{% endif %}
+                            {% if ordering == "-status" %}▼{% endif %}
+                        </a>
+                    </th>
+                    <th>Ações</th>
+                </tr>
+                {% for livro in page_obj %}
+                <tr>
+                    <td>
+                        {% if livro.capa %}
+                            <img src="{{ livro.capa.url }}" alt="Capa" width="80">
+                        {% else %}
+                            Sem Capa
+                        {% endif %}
+                    </td>
+                    <td>{{ livro.nome }}</td>
+                    <td>{{ livro.escritor }}</td>
+                    <td>{{ livro.editora }}</td>
+                    <td>{{ livro.progresso }}%</td>
+                    <td>{{ livro.get_status_display }}</td>
+                    <td>
+                        <a href="{% url 'excluir_livro' livro.id %}" class = "btn-delete">Excluir</a>
+                        <a href="{% url 'editar_livro' livro.id %}" class = "btn-editar">Editar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="pagination">
+
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}&ordering={{ ordering }}" class="page-btn">Anterior</a>
+                {% endif %}
+
+                <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}&ordering={{ ordering }}" class="page-btn">Próxima</a>
+                {% endif %}
+                
+            </div>
+        {% else %}
+            <p>Nenhum livro cadastrado</p>
+        {% endif %}
+    </div>
+</body>
+</html>

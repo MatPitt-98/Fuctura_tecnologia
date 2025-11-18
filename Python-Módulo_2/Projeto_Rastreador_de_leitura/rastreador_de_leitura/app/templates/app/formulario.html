@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if form.instance.pk %}Editar Livro{% else %}Adicionar Livro{% endif %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class = "container">
+        <h1>{% if form.instance.pk %}Editar Livro{% else %}Adicionar livro{% endif %}</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Salvar</button>
+        </form>
+
+        <a href="{% url 'lista_livros' %}" class="btn-voltar">Voltar</a>
+    </div>
+</body>
+</html>
