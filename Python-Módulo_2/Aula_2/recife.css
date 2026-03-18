@@ -56,4 +56,12 @@ body{
     display: block;
     width: 850px;
     height: 500px;
+    z-index: +1;
+}
+
+.rodapé{
+    position: absolute;
+    bottom: 0%;
+    right: 40%;
+    left: 40%;
 }
